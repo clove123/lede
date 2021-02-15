@@ -109,7 +109,7 @@ jobs:
           file_glob: true
           
           
-          
+ cat >> .config <<EOF         
 CONFIG_TARGET_ramips=y
 CONFIG_TARGET_ramips_mt7621=y
 CONFIG_TARGET_ramips_mt7621_DEVICE_d-team_newifi-d2=y
@@ -120,12 +120,14 @@ CONFIG_PACKAGE_luci-app-turboacc=y
 CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_flow-offload=y
 CONFIG_PACKAGE_luci-app-turboacc_INCLUDE_shortcut-fe=n
 CONFIG_PACKAGE_luci-app-ramfree=y
-
+EOF
 # 其他需要安装的软件包:
+cat >> .config <<EOF
 CONFIG_OPENSSL_PREFER_CHACHA_OVER_GCM=y
 CONFIG_PACKAGE_autocore-switch=y
-
+EOF
 # USB3.0支持:
+cat >> .config <<EOF
 CONFIG_PACKAGE_kmod-usb2=y
 CONFIG_PACKAGE_kmod-usb2-pci=y
 CONFIG_PACKAGE_kmod-usb3=y
@@ -156,12 +158,13 @@ CONFIG_SIGNATURE_CHECK=n
 CONFIG_TARGET_ROOTFS_EXT4FS=n
 CONFIG_LUCI_CSSTIDY=n
 CONFIG_GRUB_CONSOLE=n
-
+EOF
 # IPv6支持:
+cat >> .config <<EOF
 CONFIG_IPV6=y
-
+EOF
 # Applications
-
+cat >> .config <<EOF
 CONFIG_PACKAGE_luci-app-dnsfilter=y
 CONFIG_PACKAGE_luci-app-advanced=y
 CONFIG_PACKAGE_luci-app-firewall=y
@@ -182,14 +185,15 @@ CONFIG_PACKAGE_luci-app-bypass_INCLUDE_Socks_Server=y
 CONFIG_PACKAGE_luci-app-uhttpd=y
 CONFIG_PACKAGE_luci-app-upnp=y
 CONFIG_PACKAGE_luci-app-autoreboot=y
-
+EOF
 # Themes
-
+cat >> .config <<EOF
 CONFIG_PACKAGE_luci-theme-bootstrap=y
 CONFIG_PACKAGE_luci-theme-edge=y
-
+EOF
 
 # 其他需要安装的软件包:
+cat >> .config <<EOF
 CONFIG_PACKAGE_dnsmasq=n
 CONFIG_PACKAGE_dnsmasq-full=y
 CONFIG_PACKAGE_dnsmasq_full_dhcp=y
@@ -246,55 +250,68 @@ CONFIG_PACKAGE_kmod-ipt-tproxy=y
 CONFIG_PACKAGE_kmod-ipt-nat-extra=y
 CONFIG_PACKAGE_kmod-ipt-nat6=y
 CONFIG_PACKAGE_kmod-nf-nathelper=y
-
+EOFEOF
 # L2TP
+cat >> .config <<EOF
 CONFIG_PACKAGE_kmod-pppol2tp=y
-
+EOFEOF
 # pptp
+cat >> .config <<EOF
 CONFIG_PACKAGE_kmod-pptp=n
 CONFIG_PACKAGE_kmod-gre=n
 CONFIG_PACKAGE_kmod-nf-nathelper-extra=n
-
+EOFEOF
 # phtunnel
+cat >> .config <<EOF
 CONFIG_PACKAGE_kmod-crypto-null=y
-
+EOFEOF
 # ipsec-vpnd
+cat >> .config <<EOF
 CONFIG_PACKAGE_kmod-crypto-authenc=y
 CONFIG_PACKAGE_kmod-ipsec=y
 CONFIG_PACKAGE_kmod-ipsec4=y
 CONFIG_PACKAGE_kmod-ipsec6=y
 CONFIG_PACKAGE_kmod-ipt-ipsec=y
-
+EOF
 # SQM
+cat >> .config <<EOF
 CONFIG_PACKAGE_kmod-sched-core=y
 CONFIG_PACKAGE_kmod-sched-cake=y
 
 #AppFilter
+cat >> .config <<EOF
 CONFIG_PACKAGE_kmod-oaf=m
-
+EOF
 # cifsmount
+cat >> .config <<EOF
 CONFIG_PACKAGE_kmod-fs-cifs=y
 CONFIG_PACKAGE_kmod-nls-utf8=y
 CONFIG_PACKAGE_kmod-crypto-misc=y
-
+EOF
 # eqos
+cat >> .config <<EOF
 CONFIG_PACKAGE_kmod-ifb=y
-
+EOF
 # syncdial
+cat >> .config <<EOF
 CONFIG_PACKAGE_kmod-ipt-conntrack-extra=y
 CONFIG_PACKAGE_kmod-ipt-ipopt=y
 CONFIG_PACKAGE_kmod-ipt-raw=y
-
+EOF
 # wireguard
+cat >> .config <<EOF
 CONFIG_PACKAGE_kmod-wireguard=y
-
+EOF
 # map
+cat >> .config <<EOF
 CONFIG_PACKAGE_kmod-ip6-tunnel=y
 CONFIG_PACKAGE_kmod-nat46=y
-
+EOF
 # ebtables
+cat >> .config <<EOF
 CONFIG_PACKAGE_kmod-ebtables=y
 CONFIG_PACKAGE_kmod-ebtables-ipv4=y
 CONFIG_PACKAGE_kmod-ebtables-ipv6=y
 
 CONFIG_GRUB_BOOTOPTS="nomodeset" 
+EOF
