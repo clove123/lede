@@ -107,12 +107,12 @@ jobs:
           file: ./artifact/firmware/*
           tag: ${{ github.ref }}
           file_glob: true
-#编译d2                    
-cat >> .config <<EOF         
-CONFIG_TARGET_ramips=y
-CONFIG_TARGET_ramips_mt7621=y
-CONFIG_TARGET_ramips_mt7621_DEVICE_d-team_newifi-d2=y
-EOF
+          #编译d2                    
+          cat >> .config <<EOF         
+         CONFIG_TARGET_ramips=y
+         CONFIG_TARGET_ramips_mt7621=y
+         CONFIG_TARGET_ramips_mt7621_DEVICE_d-team_newifi-d2=y
+          EOF
 cat >> .config <<EOF
 CONFIG_KERNEL_MIPS_FPU_EMULATOR=y
 CONFIG_PACKAGE_luci-app-turboacc=y
